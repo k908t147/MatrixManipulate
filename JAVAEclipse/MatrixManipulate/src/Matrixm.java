@@ -42,6 +42,29 @@ public class Matrixm {
   	return sub;
   	
   }
+  public double determinant()
+  {
+  	double det = 0.0;
+  	
+  	if (N == 1)
+  	{
+  		det = data[0][0];
+  	}
+  	else if (N == 2)
+  	{
+  		det = data[0][0] * data[1][1] - data[0][1] * data[1][0];
+  	}
+  	else
+  	{
+  		for (int i = 0; i < N; ++i)
+  		{
+  			det += Math.pow(-1.0, (double)i) * data[0][i] * subMatrixm(0, i).determinant();
+  		}
+  	}
+  	
+  	return det;
+  }
+
   
   
   
