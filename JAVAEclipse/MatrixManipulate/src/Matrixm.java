@@ -64,6 +64,24 @@ public class Matrixm {
   	
   	return det;
   }
+  public Matrixm inverse()
+  {
+  	Matrixm inv=new Matrixm(N);
+  	double det = this.determinant();
+  	
+  	double[][] m = new double[N][N];
+  	for (int i = 0; i < N; ++i)
+  	{
+  		for (int j = 0; j < N; ++j)
+  		{
+  			
+  			m[i][j] = Math.pow(-1.0, (double)i + j) * subMatrixm(j, i).determinant() /det;
+  		}
+  	}
+  	inv.data=m;
+  	return inv;
+  }
+
 
   
   
