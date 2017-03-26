@@ -80,10 +80,57 @@ public class Matrixm {
   	}
   	inv.data=m;
   	return inv;
-  }
+  } 
+
+public static void main(String args[]) throws IOException
+{	
+    Scanner input = new Scanner(System.in);
+    File file = new File("input.txt");
+    Scanner inputFile = new Scanner(file);
+    File fout = new File("out.txt");
+	FileOutputStream fos = new FileOutputStream(fout);
+ 
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+
+ while(inputFile.hasNextInt())
+ {
+	 
+    int n = inputFile.nextInt();
+ 
+    double[][] mat = new double[n][n];
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+           mat[i][j] = inputFile.nextInt();
+        }
+    }
+
+    Matrixm I = new Matrixm(n);
+    I.data=mat;
 
 
-  
-  
-  
+if(!(n<2))
+{
+    bw.write("det(M)= "+I.determinant());
+    bw.newLine(); 
+    Matrixm L= new Matrixm(n);
+    L=I.inverse();
+    bw.write("Minv= ");
+    bw.newLine(); 
+    for (int i = 0; i < L.data.length; i++) {
+        for (int j = 0; j < L.data[i].length; j++) {
+          	bw.write(L.data[i][j] + " ");
+          }
+         
+  	bw.newLine(); 
+    }	
+}
+    
+}
+
+ bw.write("Done!");
+ bw.close();
+ input.close();
+}
 }
