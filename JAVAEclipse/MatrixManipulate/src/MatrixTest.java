@@ -54,6 +54,34 @@ public class MatrixTest {
 		assertArrayEquals(row1,testrow1,0.001);
 		assertArrayEquals(row2,testrow2,0.001);
 	
+	}
+	@Test
+	public void testSubMatrix() {
+		
+		double[][] matrix= new double [3][3];
+		Matrixm m=new Matrixm(3);
+		matrix[0][0]=5;
+		matrix[0][1]=4;
+		matrix[0][2]=3;
+		matrix[1][0]=6;
+		matrix[1][1]=9;
+		matrix[1][2]=1;
+		matrix[2][0]=2;
+		matrix[2][1]=5;
+		matrix[2][2]=3;
+		m.data=matrix;
+		
+		m=m.subMatrixm(0, 0);
+		double [] row0=m.data[0];
+		double [] row1=m.data[1];
+		
+		double [] testrow0={9.0,1.0};
+		double [] testrow1={5.0,3.0};
+		
+		
+		assertArrayEquals(row0,testrow0,0.001);
+		assertArrayEquals(row1,testrow1,0.001);
+	
 	
 	}
 	

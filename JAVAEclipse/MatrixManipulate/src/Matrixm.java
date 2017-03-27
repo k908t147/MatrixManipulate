@@ -76,6 +76,7 @@ public class Matrixm {
   		{
   			
   			m[i][j] = Math.pow(-1.0, (double)i + j) * subMatrixm(j, i).determinant() /det;
+  			
   		}
   	}
   	inv.data=m;
@@ -108,7 +109,8 @@ public static void main(String args[]) throws IOException
 
     Matrixm I = new Matrixm(n);
     I.data=mat;
-
+    
+  
 
 if(!(n<2))
 {
